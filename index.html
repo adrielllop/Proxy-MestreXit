@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Proxy MestreXit - Gerador de Sensibilidade Premium para Free Fire Android">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>Proxy MestreXit | Gerador de Sensibilidade</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo-principal.png">
+</head>
+<body>
+    <!-- Tela de Carregamento -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo-wrapper">
+                <img src="assets/logo-principal.png" alt="Proxy MestreXit" class="loading-logo">
+            </div>
+            <div class="loading-bar-container">
+                <div class="loading-bar" id="loading-bar"></div>
+            </div>
+            <p class="loading-text">Carregando Proxy MestreXit...</p>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div id="main-content" class="hidden">
+        <!-- Header / Topo -->
+        <header class="header">
+            <div class="header-logo-wrapper">
+                <img src="assets/logo-principal.png" alt="Proxy MestreXit Logo" class="header-logo">
+            </div>
+            <div class="header-titles">
+                <h1 class="header-title">GERADOR DE SENSIBILIDADE</h1>
+                <p class="header-subtitle">ANDROID</p>
+            </div>
+        </header>
+
+        <!-- Abas -->
+        <div class="tabs-container">
+            <button class="tab-btn active" data-tab="ff-current" onclick="switchTab('ff-current')">
+                <div class="tab-content">
+                    <img src="assets/logo-ff-2026.jpg" alt="Free Fire Atual" class="tab-logo">
+                    <span class="tab-text">Free Fire Atual</span>
+                </div>
+                <div class="tab-indicator"></div>
+            </button>
+            <button class="tab-btn" data-tab="ff-2022" onclick="switchTab('ff-2022')">
+                <div class="tab-content">
+                    <img src="assets/logo-ff-2022.jpg" alt="Free Fire 2022" class="tab-logo">
+                    <span class="tab-text">Free Fire 2022</span>
+                </div>
+                <div class="tab-indicator"></div>
+            </button>
+        </div>
+
+        <!-- Painel Free Fire Atual -->
+        <div class="panel active" id="panel-ff-current">
+            <div class="panel-header">
+                <img src="assets/logo-ff-2026.jpg" alt="Free Fire Atual" class="panel-logo">
+                <h2 class="panel-title">Free Fire Atual</h2>
+            </div>
+
+            <!-- Seleção de Versão -->
+            <div class="version-selector">
+                <button class="version-btn active" data-version="ff" onclick="selectVersion('ff-current', 'ff', this)">
+                    <span class="version-icon">&#127918;</span>
+                    <span class="version-label">Free Fire</span>
+                </button>
+                <button class="version-btn" data-version="ff-max" onclick="selectVersion('ff-current', 'ff-max', this)">
+                    <span class="version-icon">&#9889;</span>
+                    <span class="version-label">Free Fire MAX</span>
+                </button>
+            </div>
+
+            <!-- Seleção de Nível de Sensibilidade -->
+            <div class="level-label">
+                <span>&#127919; Nível de Sensibilidade</span>
+            </div>
+            <div class="level-selector">
+                <button class="level-btn" data-level="low" onclick="selectLevel('ff-current', 'low', this)">
+                    <span class="level-icon">&#128310;</span>
+                    <span class="level-text">Baixa</span>
+                </button>
+                <button class="level-btn active" data-level="medium" onclick="selectLevel('ff-current', 'medium', this)">
+                    <span class="level-icon">&#128992;</span>
+                    <span class="level-text">Média</span>
+                </button>
+                <button class="level-btn" data-level="high" onclick="selectLevel('ff-current', 'high', this)">
+                    <span class="level-icon">&#128308;</span>
+                    <span class="level-text">Alta</span>
+                </button>
+            </div>
+
+            <!-- Resultados -->
+            <div class="results-container" id="results-ff-current">
+                <div class="result-item" data-type="Geral">
+                    <div class="result-icon"><span>&#127919;</span></div>
+                    <div class="result-info">
+                        <span class="result-label">Geral</span>
+                        <span class="result-value" id="valor-geral-current">—</span>
+                    </div>
+                    <div class="result-bar">
+                        <div class="result-bar-fill" id="bar-geral-current"></div>
+                    </div>
+                </div>
+                <div class="result-item" data-type="Red Dot">
+                    <div class="result-icon"><span>&#128065;</span></div>
+                    <div class="result-info">
+                        <span class="result-label">Red Dot</span>
+                        <span class="result-value" id="valor-reddot-current">—</span>
+                    </div>
+                    <div class="result-bar">
+                        <div class="result-bar-fill" id="bar-reddot-current"></div>
+                    </div>
+                </div>
+                <div class="result-item" data-type="Mira 2x">
+                    <div class="result-icon"><span>&#128270;</span></div>
+                    <div class="result-info">
+                        <span class="result-label">Mira 2x</span>
+                        <span class="result-value" id="valor-mira2x-current">—</span>
+                    </div>
+                    <div class="result-bar">
+                        <div class="result-bar-fill" id="bar-mira2x-current"></div>
+                    </div>
+                </div>
+                <div class="result-item" data-type="Mira 4x">
+                    <div class="result-icon"><span>&#128271;</span></div>
+                    <div class="result-info">
+                        <span class="result-label">Mira 4x</span>
+                        <span class="result-value" id="valor-mira4x-current">—</span>
+                    </div>
+                    <div class="result-bar">
+                        <div class="result-bar-fill" id="bar-mira4x-current"></div>
+                    </div>
+                </div>
+                <div class="result-item" data-type="AWM">
+                    <div class="result-icon"><span>&#127891;</span></div>
+                    <div class="result-info">
+                        <span class="result-label">AWM</span>
+                        <span class="result-value" id="valor-awm-current">—</span>
+                    </div>
+                    <div class="result-bar">
+                        <div class="result-bar-fill" id="bar-awm-current"></div>
+                    </div>
+                </div>
+                <div class="result-item" data-type="Olhadinha">
+                    <div class="result-icon"><span>&#128064;</span></div>
+                    <div class="result-info">
+                        <span class="result-label">Olhadinha</span>
+                        <span class="result-value" id="valor-olhadinha-current">—</span>
+                    </div>
+                    <div class="result-bar">
+                        <div class="result-bar-fill" id="bar-olhadinha-current"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botões -->
+            <div class="buttons-container">
+                <button class="btn-generate" id="btn-gerar-current" onclick="gerarSensibilidade('current')">
+                    <span class="btn-icon">&#9889;</span>
+                    <span class="btn-text">GERAR SENSIBILIDADE</span>
+                    <span class="btn-glow"></span>
+                </button>
+                <button class="btn-regenerate hidden" id="btn-regerar-current" onclick="gerarSensibilidade('current')">
+                    <span class="btn-icon">&#128260;</span>
+                    <span class="btn-text">GERAR NOVAMENTE</span>
+                    <span class="btn-glow"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Painel Free Fire 2022 -->
+        <div class="panel" id="panel-ff-2022">
+            <div class="panel-header">
+                <img src="assets/logo-ff-2022.jpg" alt="Free Fire 2022" class="panel-logo">
+                <h2 class="panel-title">Free Fire 2022</h2>
+            </div>
+
+            <!-- Seleção de Versão -->
+            <div class="version-selector">
+                <button class="version-btn active" data-version="ff" onclick="selectVersion('ff-2022', 'ff', this)">
+                    <span class="version-icon">&#127918;</span>
+                    <span class="version-label">Free Fire</span>
+                </button>
+                <button class="version-btn" data-version="ff-max" onclick="selectVersion('ff-2022', 'ff-max', this)">
+                    <span class="version-icon">&#9889;</span>
+                    <span class="version-label">Free Fire MAX</span>
+                </button>
+            </div>
+
+            <!-- Seleção de Nível de Sensibilidade -->
+            <div class="level-label">
+                <span>&#127919; Nível de Sensibilidade</span>
+            </div>
+            <div class="level-selector">
+                <button class="level-btn" data-level="low" onclick="selectLevel('ff-2022', 'low', this)">
+                    <span class="level-icon">&#128310;</span>
+                    <span class="level-text">Baixa</span>
+                </button>
+                <button class="level-btn active" data-level="medium" onclick="selectLevel('ff-2022', 'medium', this)">
+                    <span class="level-icon">&#128992;</span>
+                    <span class="level-text">Média</span>
+                </button>
+                <button class="level-btn" data-level="high" onclick="selectLevel('ff-2022', 'high', this)">
+                    <span class="level-icon">&#128308;</span>
+                    <span class="level-text">Alta</span>
+                </button>
+            </div>
+
+            <!-- Resultados -->
+            <div class="results-container" id="results-ff-2022">
+                <div class="result-item" data-type="Geral">
+                    <div class="result-icon"><span>&#127919;</span></div>
+                    <div class="result-info">
+                        <span class="result-label">Geral</span>
+                        <span class="result-value" id="valor-geral-2022">—</span>
+                    </div>
+                    <div class="result-bar">
+                        <div class="result-bar-fill" id="bar-geral-2022"></div>
+                    </div>
+                </div>
+                <div class="result-item" data-type="Red Dot">
+                    <div class="result-icon"><span>&#128065;</span></div>
+                    <div class="result-info">
+                        <span class="result-label">Red Dot</span>
+                        <span class="result-value" id="valor-reddot-2022">—</span>
+                    </div>
+                    <div class="result-bar">
+                        <div class="result-bar-fill" id="bar-reddot-2022"></div>
+                    </div>
+                </div>
+                <div class="result-item" data-type="Mira 2x">
+                    <div class="result-icon"><span>&#128270;</span></div>
+                    <div class="result-info">
+                        <span class="result-label">Mira 2x</span>
+                        <span class="result-value" id="valor-mira2x-2022">—</span>
+                    </div>
+                    <div class="result-bar">
+                        <div class="result-bar-fill" id="bar-mira2x-2022"></div>
+                    </div>
+                </div>
+                <div class="result-item" data-type="Mira 4x">
+                    <div class="result-icon"><span>&#128271;</span></div>
+                    <div class="result-info">
+                        <span class="result-label">Mira 4x</span>
+                        <span class="result-value" id="valor-mira4x-2022">—</span>
+                    </div>
+                    <div class="result-bar">
+                        <div class="result-bar-fill" id="bar-mira4x-2022"></div>
+                    </div>
+                </div>
+                <div class="result-item" data-type="AWM">
+                    <div class="result-icon"><span>&#127891;</span></div>
+                    <div class="result-info">
+                        <span class="result-label">AWM</span>
+                        <span class="result-value" id="valor-awm-2022">—</span>
+                    </div>
+                    <div class="result-bar">
+                        <div class="result-bar-fill" id="bar-awm-2022"></div>
+                    </div>
+                </div>
+                <div class="result-item" data-type="Olhadinha">
+                    <div class="result-icon"><span>&#128064;</span></div>
+                    <div class="result-info">
+                        <span class="result-label">Olhadinha</span>
+                        <span class="result-value" id="valor-olhadinha-2022">—</span>
+                    </div>
+                    <div class="result-bar">
+                        <div class="result-bar-fill" id="bar-olhadinha-2022"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botões -->
+            <div class="buttons-container">
+                <button class="btn-generate" id="btn-gerar-2022" onclick="gerarSensibilidade('2022')">
+                    <span class="btn-icon">&#9889;</span>
+                    <span class="btn-text">GERAR SENSIBILIDADE</span>
+                    <span class="btn-glow"></span>
+                </button>
+                <button class="btn-regenerate hidden" id="btn-regerar-2022" onclick="gerarSensibilidade('2022')">
+                    <span class="btn-icon">&#128260;</span>
+                    <span class="btn-text">GERAR NOVAMENTE</span>
+                    <span class="btn-glow"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="footer hidden" id="main-footer">
+        <div class="footer-content">
+            <img src="assets/logo-principal.png" alt="Proxy MestreXit" class="footer-logo">
+            <p class="footer-text">Proxy MestreXit &copy; 2026</p>
+            <p class="footer-subtext">Gerador de Sensibilidade Premium</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
